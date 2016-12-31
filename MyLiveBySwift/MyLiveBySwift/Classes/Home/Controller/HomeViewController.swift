@@ -24,12 +24,13 @@ class HomeViewController: UIViewController {
     
     lazy var pageContentView: PageContentView = { [weak self] in
         // 创建frame
-        let kContenViewH = kScreenH - kStatusBarH-kTitleViewH
-        let contentFrame = CGRect(x: 0, y: kStatusBarH+kNavigetionBarH+kTitleViewH, width: kScreenW, height: kContenViewH)
+        let kContenViewH = kScreenH - kStatusBarH - kTitleViewH - kTabBarH - kNavigetionBarH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigetionBarH + kTitleViewH, width: kScreenW, height: kContenViewH)
         
         // 创建childVcs
         var childVcs = [UIViewController]()
-        for _ in 0..<4 {
+        childVcs.append(RecommonViewController())
+        for _ in 0..<3 {
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
             childVcs.append(vc)
@@ -69,10 +70,6 @@ extension HomeViewController {
     
     func setNavigetionBar(){
         // 设置导航栏左边图标
-        //let btn = UIButton()
-        //btn.setImage(UIImage(named: "logo"), for: .normal)
-        //btn.sizeToFit()                         // 设置button尺寸，这里是按图片大小自动设置
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
         navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo")
         
         // 设置导航栏右边的图标
@@ -84,10 +81,6 @@ extension HomeViewController {
         navigationItem.rightBarButtonItems = [historyItem, serchItem, qrcodeItem]
         
     }
-    
-    
-
-
 }
 
 // MARK:- 遵守PageTitleViewDelegate协议
