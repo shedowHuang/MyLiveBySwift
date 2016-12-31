@@ -13,11 +13,18 @@ import UIKit
 
 private let kScrollLineH : CGFloat = 2
 
+protocol PageTitleViewDelegate: class {
+    func pageTitleView(_ titleView : PageTitleView, selectedIndex index : Int)
+
+}
+
 class PageTitleView: UIView {
     
     // 定义成员变量
     fileprivate var titles: [String]
     fileprivate var titleLabels: [UILabel] = [UILabel]()
+    fileprivate var currentIndex: Int = 0
+    weak var deleget: PageTitleViewDelegate?
     
     // 懒加载        好处： 别的类可以直接调用
     var scrollVIew: UIScrollView = {
@@ -35,8 +42,6 @@ class PageTitleView: UIView {
         scrollLine.backgroundColor = UIColor.orange
         return scrollLine
     }()
-    
-    
     
     // 定义构造函数
     init(frame: CGRect, titles: [String]) {
@@ -89,6 +94,12 @@ extension PageTitleView{
             // 将label添加到ScrollView
             scrollVIew.addSubview(label)
             titleLabels.append(label)
+            
+            // 添加label的手势
+            label.isUserInteractionEnabled = true   // 设置用户可以互交
+            let tapGas = UITapGestureRecognizer(target: self, action: #selector(self.titleLabelClick(_:)))
+            label.addGestureRecognizer(tapGas)
+            
         }
     }
     
@@ -111,6 +122,31 @@ extension PageTitleView{
                scrollVIew.addSubview(scrollLineView)
 
         
+    }
+}
+
+// 监听label的手势
+extension PageTitleView{
+    @objc fileprivate func titleLabelClick(_ tapGes : UITapGestureRecognizer){
+        
+        //1. 获取当前label的下标值
+        guard let currentLabel = tapGes.view as? UILabel else { return }
+        // 2. 获取之前的label的下标值
+        let oldLabel = titleLabels[currentIndex]
+        // 3. 切换文件的颜色
+        currentLabel.textColor = UIColor.orange
+        oldLabel.textColor = UIColor.darkGray
+        // 4.保存当前最新的label的下标值
+        currentIndex = currentLabel.tag
+        
+        // 5.改变滚动条的位置，到当前点击label的位置
+        let scrollLinePositionX = CGFloat(currentIndex) * scrollLineView.frame.width
+        // 画个动画效果
+        UIView.animate(withDuration: 0.15){
+            self.scrollLineView.frame.origin.x = scrollLinePositionX
+        }
+        // 6.通知代理
+        deleget?.pageTitleView(self, selectedIndex: currentIndex)
     }
 
 }

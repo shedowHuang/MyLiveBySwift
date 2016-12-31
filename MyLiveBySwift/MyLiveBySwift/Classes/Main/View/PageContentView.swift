@@ -13,13 +13,12 @@ private let contentCellID = "contentCellID"
 class PageContentView: UIView {
 
     fileprivate var childVcs: [UIViewController]
-    fileprivate var praentController: UIViewController
+    fileprivate weak var praentController: UIViewController?
     
-    
-    lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = { [weak self] in
         // 先创建layout。   
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
@@ -35,7 +34,7 @@ class PageContentView: UIView {
     
     }()
     
-    init(frame: CGRect, childVcs: [UIViewController], praentController: UIViewController) {
+    init(frame: CGRect, childVcs: [UIViewController], praentController: UIViewController?) {
         self.childVcs = childVcs
         self.praentController = praentController
 
@@ -52,12 +51,12 @@ class PageContentView: UIView {
     
 }
 
-
+// MARK:- 设置UI界面
 extension PageContentView{
     func setupUI(){
         // 把子控制器添加到父控制器
         for childVc in childVcs {
-            praentController.addChildViewController(childVc)
+            praentController?.addChildViewController(childVc)
         }
         
         // 定义collectView来存放cell里UIView
@@ -66,6 +65,7 @@ extension PageContentView{
     }
 }
 
+// MARK:- 遵守UICollectionViewDataSource
 extension PageContentView: UICollectionViewDataSource{
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -87,4 +87,17 @@ extension PageContentView: UICollectionViewDataSource{
         return cell
     }
 
+}
+
+// MARK:- 对外暴露的方法
+extension PageContentView {
+    func setCurrentIndex(_ currentIndex : Int) {
+        
+        // 1.记录需要进制执行代理方法
+        //isForbidScrollDelegate = true
+        
+        // 2.滚动正确的位置
+        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+    }
 }
