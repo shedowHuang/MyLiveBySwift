@@ -8,12 +8,47 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+private let kTitleViewH : CGFloat = 40
 
+class HomeViewController: UIViewController {
+    
+    // 加载属性
+    // 通过懒加载来调用： pageTitleView
+    lazy var pageTitleView: PageTitleView = {
+        
+        let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigetionBarH, width: kScreenW, height: kTitleViewH)
+        let titles = ["推荐","游戏","娱乐","趣玩"]
+        
+        let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        //titleView.backgroundColor = UIColor.purple
+        return titleView
+    }()
+    
+    lazy var pageContentView: PageContentView = {
+        // 创建frame
+        let kContenViewH = kScreenH - kStatusBarH-kTitleViewH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH+kNavigetionBarH+kTitleViewH, width: kScreenW, height: kContenViewH)
+        
+        // 创建childVcs
+        var childVcs = [UIViewController]()
+        for _ in 0..<4 {
+            let vc = UIViewController()
+            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            childVcs.append(vc)
+        }
+        
+        let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, praentController: self)
+        
+        return contentView
+    }()
+    
+    
+    // 系统的回调函数
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        //
         setupUI()
+        
         
     }
     
@@ -24,10 +59,18 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
 
     func setupUI(){
+        // 不需要调整scrollView的内边距
+        automaticallyAdjustsScrollViewInsets = false
+        // 设置导航栏
         setNavigetionBar()
+        // 设置标题栏
+        view.addSubview(pageTitleView)
+        // 设置内容显示栏
+        view.addSubview(pageContentView)
+        pageContentView.backgroundColor = UIColor.purple
     }
 
-    // 设置导航栏 
+    
     func setNavigetionBar(){
         // 设置导航栏左边图标
         //let btn = UIButton()
@@ -45,6 +88,8 @@ extension HomeViewController {
         navigationItem.rightBarButtonItems = [historyItem, serchItem, qrcodeItem]
         
     }
+    
+    
 
 
 }
