@@ -56,9 +56,6 @@ class RecommonViewController: UIViewController {
         setupUI()
         //发送网络请求
         loadData()
-
-
-
     }
 }
 
@@ -92,19 +89,19 @@ extension RecommonViewController : UICollectionViewDataSource , UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // 1.创建Cell
-        var cell: UICollectionViewCell!
-        // 2.取值
         
+        let group = recommandVM.anchorGroups[indexPath.section]
+        let anchor = group.anchors[indexPath.item]
+        print(indexPath.section)
         if indexPath.section == 1 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettryCellID, for: indexPath)
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettryCellID, for: indexPath) as! CollectionPrettyCell
+            cell.anchor = anchor
+            return cell
         } else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
+            cell.anchor = anchor
+            return cell
         }
-        
-
-        return cell
-
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
