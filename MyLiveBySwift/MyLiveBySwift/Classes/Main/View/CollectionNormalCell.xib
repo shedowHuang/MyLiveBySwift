@@ -70,6 +70,12 @@
                 <constraint firstItem="Lo7-XO-Iig" firstAttribute="trailing" secondItem="FD2-za-goy" secondAttribute="trailing" constant="-5" id="u02-wq-ZQL"/>
             </constraints>
             <size key="customSize" width="230" height="178"/>
+            <connections>
+                <outlet property="iconImageView" destination="FD2-za-goy" id="hKG-8W-7tB"/>
+                <outlet property="nickNameLabel" destination="ohg-eW-olw" id="THi-h2-7Zg"/>
+                <outlet property="onLineBtn" destination="Lo7-XO-Iig" id="lyk-ww-hzN"/>
+                <outlet property="roomLabel" destination="IlR-L3-3YD" id="U4R-6f-aHQ"/>
+            </connections>
             <point key="canvasLocation" x="115" y="-12"/>
         </collectionViewCell>
     </objects>

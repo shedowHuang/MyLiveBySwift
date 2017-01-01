@@ -82,8 +82,8 @@
             </constraints>
             <size key="customSize" width="252" height="249"/>
             <connections>
-                <outlet property="IconImageView" destination="X4h-GF-3cZ" id="tg7-5P-Blc"/>
                 <outlet property="cityBtn" destination="Yau-YD-VUc" id="V1M-rC-XO4"/>
+                <outlet property="iconImageView" destination="X4h-GF-3cZ" id="sHs-G7-ymX"/>
                 <outlet property="nickNameLabel" destination="Cqr-mM-knb" id="Iwh-Rt-ebh"/>
                 <outlet property="onLineBtn" destination="ADY-9X-VOz" id="gXH-1o-nC9"/>
             </connections>

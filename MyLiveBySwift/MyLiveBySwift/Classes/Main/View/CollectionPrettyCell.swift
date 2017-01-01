@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionPrettyCell: UICollectionViewCell {
  
     @IBOutlet weak var cityBtn: UIButton!
     @IBOutlet weak var onLineBtn: UIButton!
     @IBOutlet weak var nickNameLabel: UILabel!
-    @IBOutlet weak var IconImageView: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     var anchor: AnchorModel? {
         didSet {
@@ -28,8 +29,11 @@ class CollectionPrettyCell: UICollectionViewCell {
             onLineBtn.setTitle(onLineStr, for: .normal)
             nickNameLabel.text = anchor.nickname
             cityBtn.setTitle(anchor.anchor_city, for: .normal)
-            
             // 显示图片
+            
+            //初始化URL并且获取图片地址
+            guard let url = URL(string: anchor.vertical_src) else { return }
+            iconImageView.kf.setImage(with: url)
         }
     
     }

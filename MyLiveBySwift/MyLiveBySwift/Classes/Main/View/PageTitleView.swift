@@ -135,6 +135,9 @@ extension PageTitleView{
         
         //1. 获取当前label的下标值
         guard let currentLabel = tapGes.view as? UILabel else { return }
+        
+        if currentLabel.tag == currentIndex { return }
+        
         // 2. 获取之前的label的下标值
         let oldLabel = titleLabels[currentIndex]
         // 3. 切换文件的颜色
