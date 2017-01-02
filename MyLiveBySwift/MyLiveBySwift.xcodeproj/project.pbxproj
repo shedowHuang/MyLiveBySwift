@@ -34,6 +34,8 @@
 		2BD54C8E1E157F7700F711F0 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD54C8D1E157F7700F711F0 /* Follow.storyboard */; };
 		2BD54C901E157FA000F711F0 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD54C8F1E157FA000F711F0 /* Live.storyboard */; };
 		2BD54C921E157FC700F711F0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD54C911E157FC700F711F0 /* Profile.storyboard */; };
+		2BE77B5E1E19E07300A1B5B0 /* RecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE77B5D1E19E07300A1B5B0 /* RecommendCycleView.swift */; };
+		2BE77B621E19E17400A1B5B0 /* RecommendCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE77B611E19E17400A1B5B0 /* RecommendCycleView.xib */; };
 		60A51CC08172D08798171571 /* Pods_MyLiveBySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31D33C56785624BD035FB49 /* Pods_MyLiveBySwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		2BD54C8D1E157F7700F711F0 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Follow.storyboard; path = MyLiveBySwift/Classes/Follow/Follow.storyboard; sourceTree = SOURCE_ROOT; };
 		2BD54C8F1E157FA000F711F0 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Live.storyboard; path = MyLiveBySwift/Classes/Live/Live.storyboard; sourceTree = SOURCE_ROOT; };
 		2BD54C911E157FC700F711F0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = MyLiveBySwift/Classes/Profile/Profile.storyboard; sourceTree = SOURCE_ROOT; };
+		2BE77B5D1E19E07300A1B5B0 /* RecommendCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCycleView.swift; sourceTree = "<group>"; };
+		2BE77B611E19E17400A1B5B0 /* RecommendCycleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCycleView.xib; sourceTree = "<group>"; };
 		822769DCDA2C83B4C3B1A2D7 /* Pods-MyLiveBySwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLiveBySwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyLiveBySwift/Pods-MyLiveBySwift.debug.xcconfig"; sourceTree = "<group>"; };
 		9AB93720F232353924AE60BE /* Pods-MyLiveBySwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLiveBySwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyLiveBySwift/Pods-MyLiveBySwift.release.xcconfig"; sourceTree = "<group>"; };
 		D31D33C56785624BD035FB49 /* Pods_MyLiveBySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLiveBySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +110,8 @@
 			children = (
 				2BB4D7B91E17DEEB0069551B /* CollectionHeaderView.swift */,
 				2BB4D7BA1E17DEEB0069551B /* CollectionHeaderView.xib */,
+				2BE77B5D1E19E07300A1B5B0 /* RecommendCycleView.swift */,
+				2BE77B611E19E17400A1B5B0 /* RecommendCycleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				2BD54C901E157FA000F711F0 /* Live.storyboard in Resources */,
 				2BD54C6E1E15564100F711F0 /* Assets.xcassets in Resources */,
 				2BD54C6C1E15564100F711F0 /* Main.storyboard in Resources */,
+				2BE77B621E19E17400A1B5B0 /* RecommendCycleView.xib in Resources */,
 				2BB4D7C41E1804030069551B /* CollectionPrettyCell.xib in Resources */,
 				2BD54C921E157FC700F711F0 /* Profile.storyboard in Resources */,
 				2BD54C8A1E157C3B00F711F0 /* Home.storyboard in Resources */,
@@ -412,6 +419,7 @@
 				2BB4D7B61E17BD8F0069551B /* PageContentView.swift in Sources */,
 				2BB4D7AE1E173A760069551B /* PageTitleView.swift in Sources */,
 				2B17EF561E168B9D001297CA /* HomeViewController.swift in Sources */,
+				2BE77B5E1E19E07300A1B5B0 /* RecommendCycleView.swift in Sources */,
 				2BB4D7B01E173FDA0069551B /* Common.swift in Sources */,
 				2BC258DD1E192B0700318465 /* Date_Extension.swift in Sources */,
 				2B17EF591E16BA4F001297CA /* UIBarButton-Extension.swift in Sources */,

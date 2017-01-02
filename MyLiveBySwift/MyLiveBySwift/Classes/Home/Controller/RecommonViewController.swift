@@ -18,12 +18,13 @@ private let kNormalItemH : CGFloat = kItemW * 3 / 4
 private let kPrettyItemH : CGFloat = kItemW * 4 / 3
 private let kHeaderViewH : CGFloat = 50
 
+private let kCycleViewH = kScreenW * 3 / 8
+
 
 class RecommonViewController: UIViewController {
 
     fileprivate lazy var recommandVM: RecommandViewModel = RecommandViewModel()
     fileprivate lazy var collectionView: UICollectionView = { [unowned self] in
-        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: kItemW, height: kNormalItemH)
         layout.minimumLineSpacing = 0
@@ -48,7 +49,11 @@ class RecommonViewController: UIViewController {
         
         return collectionView
     }()
-    
+    fileprivate lazy var cycleView: RecommendCycleView = {
+        let cycleView = RecommendCycleView.recommendCycleView()
+        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        return cycleView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +67,16 @@ class RecommonViewController: UIViewController {
 
 extension RecommonViewController{
     fileprivate func setupUI(){
+        // 1.在界面上添加collectionView
         view.addSubview(collectionView)
+        
+        // 2.将CycleView添加到UICollectionView中
+        collectionView.addSubview(cycleView)
+        
+        // 3.设置collectionView的内边距
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0)
+        
+
     }
 
 }
