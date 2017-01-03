@@ -64,7 +64,7 @@ class RecommonViewController: UIViewController {
     }
 }
 
-
+// MARK:- 设置UI界面内容
 extension RecommonViewController{
     fileprivate func setupUI(){
         // 1.在界面上添加collectionView
@@ -80,17 +80,20 @@ extension RecommonViewController{
     }
 
 }
-
-
+// MARK:- 请求数据
 extension RecommonViewController{
     fileprivate func loadData(){
-       recommandVM.requestDate { 
+        // 1.请求推荐数据
+        recommandVM.requestDate {
             self.collectionView.reloadData()
+        }
+        // 2.请求轮播数据
+        recommandVM.requestCycleData { 
+            self.cycleView.cycleModels = self.recommandVM.cycleModels
         }
     }
 
 }
-
 
 extension RecommonViewController : UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -106,7 +109,7 @@ extension RecommonViewController : UICollectionViewDataSource , UICollectionView
         
         let group = recommandVM.anchorGroups[indexPath.section]
         let anchor = group.anchors[indexPath.item]
-        print(indexPath.section)
+        
         if indexPath.section == 1 {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettryCellID, for: indexPath) as! CollectionPrettyCell
             cell.anchor = anchor

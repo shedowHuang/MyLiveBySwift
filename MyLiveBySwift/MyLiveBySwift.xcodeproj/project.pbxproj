@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0661471E1C053100B1A173 /* CollectionCycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0661451E1C053100B1A173 /* CollectionCycleCell.swift */; };
+		2B0661481E1C053100B1A173 /* CollectionCycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0661461E1C053100B1A173 /* CollectionCycleCell.xib */; };
 		2B17EF541E168A95001297CA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17EF531E168A95001297CA /* MainViewController.swift */; };
 		2B17EF561E168B9D001297CA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17EF551E168B9D001297CA /* HomeViewController.swift */; };
 		2B17EF591E16BA4F001297CA /* UIBarButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17EF581E16BA4F001297CA /* UIBarButton-Extension.swift */; };
@@ -36,10 +38,13 @@
 		2BD54C921E157FC700F711F0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD54C911E157FC700F711F0 /* Profile.storyboard */; };
 		2BE77B5E1E19E07300A1B5B0 /* RecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE77B5D1E19E07300A1B5B0 /* RecommendCycleView.swift */; };
 		2BE77B621E19E17400A1B5B0 /* RecommendCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE77B611E19E17400A1B5B0 /* RecommendCycleView.xib */; };
+		2BE77B641E1A928400A1B5B0 /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE77B631E1A928400A1B5B0 /* CycleModel.swift */; };
 		60A51CC08172D08798171571 /* Pods_MyLiveBySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31D33C56785624BD035FB49 /* Pods_MyLiveBySwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B0661451E1C053100B1A173 /* CollectionCycleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCycleCell.swift; sourceTree = "<group>"; };
+		2B0661461E1C053100B1A173 /* CollectionCycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCycleCell.xib; sourceTree = "<group>"; };
 		2B17EF531E168A95001297CA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2B17EF551E168B9D001297CA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2B17EF581E16BA4F001297CA /* UIBarButton-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButton-Extension.swift"; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 		2BD54C911E157FC700F711F0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = MyLiveBySwift/Classes/Profile/Profile.storyboard; sourceTree = SOURCE_ROOT; };
 		2BE77B5D1E19E07300A1B5B0 /* RecommendCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCycleView.swift; sourceTree = "<group>"; };
 		2BE77B611E19E17400A1B5B0 /* RecommendCycleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCycleView.xib; sourceTree = "<group>"; };
+		2BE77B631E1A928400A1B5B0 /* CycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
 		822769DCDA2C83B4C3B1A2D7 /* Pods-MyLiveBySwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLiveBySwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyLiveBySwift/Pods-MyLiveBySwift.debug.xcconfig"; sourceTree = "<group>"; };
 		9AB93720F232353924AE60BE /* Pods-MyLiveBySwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLiveBySwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyLiveBySwift/Pods-MyLiveBySwift.release.xcconfig"; sourceTree = "<group>"; };
 		D31D33C56785624BD035FB49 /* Pods_MyLiveBySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLiveBySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +107,7 @@
 		2B17EF4D1E16890E001297CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2BE77B631E1A928400A1B5B0 /* CycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +119,8 @@
 				2BB4D7BA1E17DEEB0069551B /* CollectionHeaderView.xib */,
 				2BE77B5D1E19E07300A1B5B0 /* RecommendCycleView.swift */,
 				2BE77B611E19E17400A1B5B0 /* RecommendCycleView.xib */,
+				2B0661451E1C053100B1A173 /* CollectionCycleCell.swift */,
+				2B0661461E1C053100B1A173 /* CollectionCycleCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 				2BD54C6E1E15564100F711F0 /* Assets.xcassets in Resources */,
 				2BD54C6C1E15564100F711F0 /* Main.storyboard in Resources */,
 				2BE77B621E19E17400A1B5B0 /* RecommendCycleView.xib in Resources */,
+				2B0661481E1C053100B1A173 /* CollectionCycleCell.xib in Resources */,
 				2BB4D7C41E1804030069551B /* CollectionPrettyCell.xib in Resources */,
 				2BD54C921E157FC700F711F0 /* Profile.storyboard in Resources */,
 				2BD54C8A1E157C3B00F711F0 /* Home.storyboard in Resources */,
@@ -425,7 +435,9 @@
 				2B17EF591E16BA4F001297CA /* UIBarButton-Extension.swift in Sources */,
 				2BB4D7C31E1804030069551B /* CollectionPrettyCell.swift in Sources */,
 				2BB4D7BF1E17E70A0069551B /* CollectionNormalCell.swift in Sources */,
+				2BE77B641E1A928400A1B5B0 /* CycleModel.swift in Sources */,
 				2BC258D01E18F64100318465 /* NetworkTools.swift in Sources */,
+				2B0661471E1C053100B1A173 /* CollectionCycleCell.swift in Sources */,
 				2BB4D7B81E17CA9E0069551B /* RecommonViewController.swift in Sources */,
 				2BC258D51E19048D00318465 /* RecommandViewModel.swift in Sources */,
 				2BC258DB1E19255100318465 /* AnchorModel.swift in Sources */,

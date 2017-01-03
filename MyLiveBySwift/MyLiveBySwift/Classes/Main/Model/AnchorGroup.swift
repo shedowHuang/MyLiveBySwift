@@ -30,7 +30,6 @@ class AnchorGroup: NSObject {
     init(dict: [String : Any]) {
         super.init()
         
-        //print(dict.count)
         setValuesForKeys(dict)
     }
     

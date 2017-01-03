@@ -8,12 +8,9 @@
 
 import UIKit
 
-// 1.定义参数
-private let parameters = ["limit" : "4", "offset" : "0", "time" : Date.getCurrentTime()]
-
-
 class RecommandViewModel{
 
+    lazy var cycleModels : [CycleModel] = [CycleModel]()
     lazy var anchorGroups : [AnchorGroup] = [AnchorGroup]()
     fileprivate lazy var bigDataGroup : AnchorGroup = AnchorGroup();
     fileprivate lazy var prettyGroup : AnchorGroup = AnchorGroup();
@@ -22,11 +19,16 @@ class RecommandViewModel{
 
 // 网络请求数据
 extension RecommandViewModel {
+    
+    //请求推荐数据
     func requestDate (_ finishCallback : @escaping () ->()) {
-        // 0.创建Group
+        // 0.定义参数
+        let parameters = ["limit" : "4", "offset" : "0", "time" : Date.getCurrentTime()]
+        
+        // 1.创建Group
         let dGroup = DispatchGroup()
         
-        // 1. 第一部分推荐数据。 编号：0
+        // 2. 第一部分推荐数据。 编号：0
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getbigDataRoom", parameters: ["time" : Date.getCurrentTime()]){ (result) in
             // 1. 请求到的结果转换成字典模型
@@ -48,7 +50,7 @@ extension RecommandViewModel {
         }
         
         
-        // 2. 第二部分颜值数据。 编号：1
+        // 3. 第二部分颜值数据。 编号：1
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", parameters: parameters){ (result) in
             // 1. 请求到的结果转换成字典模型
@@ -68,7 +70,7 @@ extension RecommandViewModel {
             dGroup.leave()
         }
         
-        // 3. 第三部分游戏数据。 编号：2-12
+        // 4. 第三部分游戏数据。 编号：2-12
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters){ (result) in
             
@@ -88,7 +90,7 @@ extension RecommandViewModel {
             dGroup.leave()
         }
         
-        // 6.所有的数据都请求到,之后进行排序
+        // 5.所有的数据都请求到,之后进行排序
         dGroup.notify(queue: DispatchQueue.main) {
             self.anchorGroups.insert(self.prettyGroup, at: 0)
             self.anchorGroups.insert(self.bigDataGroup, at: 0)
@@ -97,5 +99,26 @@ extension RecommandViewModel {
         }
     
     }
-
+    
+    // 请求无限轮播数据
+    func requestCycleData(_ finishCallback : @escaping () ->()){
+    
+        NetworkTools.requestData(.get, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version" : "2.430"]){ (result) in
+            
+            // 1.获取整体字典数据
+            guard let resultDict = result as? [String : NSObject] else { return }
+            
+            // 2.根据data的key获取数据
+            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            
+            // 3.字典转模型对象
+            for dict in dataArray {
+                self.cycleModels.append(CycleModel(dict: dict))
+                
+            }
+        
+        finishCallback()
+    }
+    
+}
 }

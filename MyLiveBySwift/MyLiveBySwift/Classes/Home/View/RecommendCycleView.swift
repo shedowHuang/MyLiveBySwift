@@ -11,7 +11,27 @@ import UIKit
 private let kCycleCellID = "kCycleCellID"
 
 class RecommendCycleView: UIView {
-
+    // MARK: 定义属性
+    var cycleTimer : Timer?
+    var cycleModels : [CycleModel]? {
+        didSet {
+            // 1.刷新collectionView
+            collectionView.reloadData()
+            
+            // 2.设置pageControl个数
+            pageControl.numberOfPages = cycleModels?.count ?? 0
+            
+            // 3.默认滚动到中间某一个位置
+            //let indexPath = IndexPath(item: (cycleModels?.count ?? 0) * 10, section: 0)
+            //collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+            
+            // 4.添加定时器
+            //removeCycleTimer()
+            //addCycleTimer()
+        }
+    }
+    
+    
     // MARK: 控件属性
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -24,7 +44,8 @@ class RecommendCycleView: UIView {
         autoresizingMask = UIViewAutoresizing()
         
         // 注册Cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCycleCellID)
+        
+        collectionView.register(UINib(nibName: "CollectionCycleCell", bundle: nil), forCellWithReuseIdentifier: kCycleCellID)
         
         
     }
@@ -47,12 +68,14 @@ extension RecommendCycleView {
 // MARK:- 遵守UICollectionView的数据源协议
 extension RecommendCycleView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return cycleModels?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCycleCellID, for: indexPath)
-        cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.red : UIColor.blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCycleCellID, for: indexPath) as! CollectionCycleCell
+        
+        cell.cycleModel = cycleModels![indexPath.item]
+        
         
         return cell
     }
