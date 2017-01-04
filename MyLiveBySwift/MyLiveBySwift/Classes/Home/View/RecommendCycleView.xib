@@ -25,17 +25,18 @@
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="1gM-Zo-9O9"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="j2f-UA-ni7"/>
                     </connections>
                 </collectionView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9CH-Ne-Wkm">
-                    <rect key="frame" x="326" y="113" width="39" height="37"/>
+                    <rect key="frame" x="326" y="116" width="39" height="37"/>
                     <color key="pageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
             </subviews>
             <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="9CH-Ne-Wkm" secondAttribute="bottom" id="0w7-8C-Owc"/>
+                <constraint firstAttribute="bottom" secondItem="9CH-Ne-Wkm" secondAttribute="bottom" constant="-3" id="0w7-8C-Owc"/>
                 <constraint firstAttribute="trailing" secondItem="LhS-kq-Au6" secondAttribute="trailing" id="8o1-bA-AJ9"/>
                 <constraint firstItem="LhS-kq-Au6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NMB-hA-C7t"/>
                 <constraint firstAttribute="bottom" secondItem="LhS-kq-Au6" secondAttribute="bottom" id="POd-s0-Nnd"/>
