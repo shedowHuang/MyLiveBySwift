@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11760" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionGameCell" customModule="MyLiveBySwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="英雄联盟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T12-OB-gUZ">
+                        <rect key="frame" x="15" y="65" width="50" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="eem-ZK-KRD"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="jqX-HD-gqX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xps-H7-cRI">
+                        <rect key="frame" x="18" y="15" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Xps-H7-cRI" secondAttribute="height" multiplier="1:1" id="ih1-mM-YF7"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="22.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="T12-OB-gUZ" secondAttribute="bottom" constant="10" id="4HG-JX-2Uv"/>
+                <constraint firstItem="Xps-H7-cRI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="4vQ-kY-cmO"/>
+                <constraint firstItem="T12-OB-gUZ" firstAttribute="top" secondItem="Xps-H7-cRI" secondAttribute="bottom" constant="5" id="67a-7v-F10"/>
+                <constraint firstItem="T12-OB-gUZ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="lzj-z5-mlh"/>
+                <constraint firstItem="Xps-H7-cRI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="vcg-yg-9R0"/>
+            </constraints>
+            <size key="customSize" width="80" height="87"/>
+            <connections>
+                <outlet property="iconImageView" destination="Xps-H7-cRI" id="9FX-H7-SSK"/>
+                <outlet property="titleLabel" destination="T12-OB-gUZ" id="16f-Uc-vMl"/>
+            </connections>
+            <point key="canvasLocation" x="40" y="33"/>
+        </collectionViewCell>
+    </objects>
+</document>
